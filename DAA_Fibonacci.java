@@ -23,5 +23,6 @@ public class DAA_Fibonacci {
         }
 
         System.out.println("\nTotal steps executed: " + stepCount);
+        sc.close();
     }
 }

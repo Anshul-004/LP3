@@ -42,7 +42,7 @@ public class DAA_nQueens {
 
     public static void main(String[] args) {
         int[][] board = new int[N][N];
-        board[0][0] = 1; // first queen placed
+        board[0][0] = 1;
 
         if (!solveNQUtil(board, 1))
             System.out.println("Solution does not exist");
