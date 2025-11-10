@@ -1,28 +1,41 @@
-import java.util.Scanner;
-
 public class DAA_Fibonacci {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number of terms: ");
-        int n = sc.nextInt();
 
-        int first = 0, second = 1;
-        int stepCount = 0; // To count steps
-
-        System.out.println("Fibonacci Series:");
-
-        for (int i = 1; i <= n; i++) {
-            System.out.print(first + " ");
-            stepCount++; 
-
-            int next = first + second;
-            stepCount++; 
-            first = second;
-            second = next;
-            stepCount += 2;
+    // Recursive method to find Fibonacci number
+    public static int fibonacciRecursive(int n) {
+        if (n <= 1) {
+            return n;
         }
+        return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+    }
 
-        System.out.println("\nTotal steps executed: " + stepCount);
-        sc.close();
+    // Non-recursive (iterative) method to find Fibonacci number
+    public static int fibonacciNonRecursive(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        int prev = 0,
+            curr = 1;
+        for (int i = 2; i <= n; i++) {
+            int next = prev + curr;
+            prev = curr;
+            curr = next;
+        }
+        return curr;
+    }
+
+    public static void main(String[] args) {
+        int n = 10;
+        System.out.println(
+            "Fibonacci number at position " +
+                n +
+                " (Recursive): " +
+                fibonacciRecursive(n)
+        );
+        System.out.println(
+            "Fibonacci number at position " +
+                n +
+                " (Non-Recursive): " +
+                fibonacciNonRecursive(n)
+        );
     }
 }
