@@ -48,7 +48,7 @@ public class DAA_Huffman {
         PriorityQueue<Node> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a.freq));
 
         // Create a leaf node for each character
-        for (var entry : freq.entrySet())
+        for (Map.Entry<Character, Integer> entry : freq.entrySet())
             pq.add(new Node(entry.getKey(), entry.getValue()));
 
         // Build the Huffman tree
@@ -69,7 +69,7 @@ public class DAA_Huffman {
 
         // Print the codes
         System.out.println("Huffman Codes:");
-        for (var entry : huffmanCode.entrySet())
+        for (Map.Entry<Character, String> entry : huffmanCode.entrySet())
             System.out.println(entry.getKey() + " : " + entry.getValue());
 
         // Encode the input text
